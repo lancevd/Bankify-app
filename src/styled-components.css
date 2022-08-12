@@ -1,0 +1,121 @@
+/* ----CARDS---- */
+
+.cards {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 20px;
+}
+
+.balance-card {
+    background: #FF5758;
+    color: #fff;
+    width: 250px;
+    height: 100px;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.savings-card {
+    background: #FCCD55;
+    color: #fff;
+    width: 250px;
+    height: 100px;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+
+/* ----MOVEMENTS---- */
+
+.transactions-head {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+select {
+    border-radius: 5px;
+    border: solid 1px rgb(39, 37, 37);
+}
+
+.debit-color {
+    color: red;
+}
+
+.credit-color {
+    color: green;
+}
+
+.movements {
+    height: 50vh;
+    overflow: scroll;
+}
+
+.movement-line {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 5px;
+}
+
+
+
+/* ----HISTORY---- */
+
+
+
+/* ----QUICKACTIONS---- */
+
+.quick-actions {
+  background: #FCFAF4;
+  padding: 10px;
+  text-align: center;
+  /* border: solid #5a0c6d; */
+}
+
+.shortcut-btns {
+    display: grid;
+    gap: 10px;
+    width: 90%;
+    margin: auto;
+    padding: 20px 0;
+}
+
+.quick-btn {
+    background: none;
+    border-radius: 5px;
+    border: 1px solid #FCCD55;
+    padding: 4px 5px;
+    width: 90%;
+    margin: auto;
+    cursor: pointer;
+}
+
+.quick-btn:hover {
+    background: #FCCD55;
+    padding: 10px 0;
+}
+
+.quick-icon {
+    font-size: 20px;
+}
+
+
+
+/* RESPONSIVENESS */
+
+@media screen and (min-width: 200px) and (max-width:760px) {
+
+    .activity {
+        width: 95%;
+        padding-left: 0;
+    }
+
+
+    .shortcut-btns {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        /* border: red solid 2px; */
+    }
+   
+
+}

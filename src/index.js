@@ -1,154 +1,73 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
+import React from "react";
+import ReactDOM from "react-dom";
+
+// import useState from "react";
+// import useEffect from "react";
+
+import "./index.css";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+
+// imported components
+
+
+
+import Activity from "./Components/Activity";
+import { Navigation } from "./desktopNav";
 
 function MyApp() {
   return (
-    <div>
-      <NavPanel />
-      <MainAppBody />
+    
+    <div className="body">
+      <HeaderDetails />
+      <Navigation />
+      <Main />
     </div>
   );
 }
 
-
-const NavPanel = () => {
+const HeaderDetails = () => {
   return (
-    <div className='nav'>
-      <p className='greeting'>Welcome <span>Olamide</span></p>
-      <p class="welcome">Log in to get started</p>
-      {/* <img src="logo.png" alt="Logo" class="logo" /> */}
-      <form class="login">
-        <input
-          type="text"
-          placeholder="user"
-          class="login__input login__input--user"
-        />
-        <input
-          type="text"
-          placeholder="PIN"
-          maxlength="4"
-          class="login__input login__input--pin"
-        />
-        <button class="login__btn">&rarr;</button>
-      </form>
-    </div>
-  )
-}
+    <menu clasName="row-nav">
+      <div clasName="greetings">
+        <h2 className="greetings-general">
+          Hello <span clasName="greetings-name">Winner</span>
+        </h2>
+        <p className="greetings-message">Welcome Back</p>
+      </div>
 
-const MainAppBody = () => {
-  return (
-    <div class="app">
-      <AcctBal></AcctBal>
-      <TransactionFlow />
-      <AcctSummary />
-      <Activities />
-    </div>
-  );
-}
+      <div className="daily-ask">What would you like to do today?</div>
+      <div className="empty"></div>
+      <div className="empty"></div>
 
-const AcctBal = () => {
-  return (
-    <div className="balance">
-        <div>
-          <p className="balance__label">Account Balance</p>
-          <p class="balance__date">
-            <span class="date">23/02/2022</span>
-          </p>
+      <div clasName="profile-rep">
+        <div clasName="avatar">
+          <FontAwesomeIcon icon={faUser} />
         </div>
-        <p class="balance__value">&#8358;0</p>
+
+        <div clasName="info">
+          <h4 clasName="info-name"> Winner Mosob </h4>
+        </div>
       </div>
-  )
-}
-
-const TransactionFlow = () => {
-  return (
-    <div class="movements">
-      <div class="movements__row">
-        <div class="movements__type movements__type--credit">2 credit</div>
-        <div class="movements__date">Yesterday</div>
-        <div class="movements__value">&#8358;40,000</div>
-      </div>
-      <div class="movements__row">
-        <div class="movements__type movements__type--debit">1 debit</div>
-        <div class="movements__date">14/02/2021</div>
-        <div class="movements__value">&#8358;3,780</div>
-      </div>
-    </div>
+    </menu>
   );
-}
+};
 
-const AcctSummary = () => {
+const Main = () => {
   return (
-    <div class="summary">
-      <p class="summary__label">Credit</p>
-      <p class="summary__value summary__value--in">&#8358;0</p>
-      <p class="summary__label">Debit</p>
-      <p class="summary__value summary__value--out">&#8358;0</p>
-      {/* <p class="summary__label">Interest</p>
-      <p class="summary__value summary__value--interest">&#8358;0</p> */}
-      <button class="btn--sort">&downarrow; SORT</button>
-    </div>
+
+    <section class="main">
+      {/* <Navigation /> */}
+      <Activity />
+    </section>
   );
-}
+};
 
-const Activities = () => {
-  return (
-    <div className='activities'>
-      <Transfer />
-      <Receive />
-      <DeleteAcct />
-    </div>
-  );
-}
 
-const Transfer = () => {
-  return (
-    <div class="operation operation--transfer">
-      <h2>Transfer money</h2>
-      <form class="form form--transfer">
-        <input type="text" class="form__input form__input--to" />
-        <input type="number" class="form__input form__input--amount" />
-        <button class="form__btn form__btn--transfer">&rarr;</button>
-        <label class="form__label">Transfer to</label>
-        <label class="form__label">Amount</label>
-      </form>
-    </div>
-  )
-}
 
-const Receive = () => {
-  return (
-    <div class="operation operation--loan">
-      <h2>Get Overdarft</h2>
-      <form class="form form--loan">
-        <input type="number" class="form__input form__input--loan-amount" />
-        <button class="form__btn form__btn--loan">&rarr;</button>
-        <label class="form__label form__label--loan">Amount</label>
-      </form>
-    </div>
-  );
-}
 
-const DeleteAcct = () => {
-  return (
-    <div class="operation operation--close">
-      <h2>Close account</h2>
-      <form class="form form--close">
-        <input type="text" class="form__input form__input--user" />
-        <input
-          type="password"
-          maxlength="6"
-          class="form__input form__input--pin"
-        />
-        <button class="form__btn form__btn--close">&rarr;</button>
-        <label class="form__label">Confirm user</label>
-        <label class="form__label">Confirm PIN</label>
-      </form>
-    </div>
-  );
-}
+
+
 
 ReactDOM.render(<MyApp />, document.getElementById("root"));
-
-
